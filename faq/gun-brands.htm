@@ -1,0 +1,87 @@
+<div id="faq-bar" class="brands-faq brands-faq-background faq"></div>
+<div id="faq-bar-inner" class="brands-faq faq">
+    <div id="x" class="cursorhand brands-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Our Brands</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="brands-faq brands-faq-content faq faq-content">
+    <div class="faq-question">
+            When it comes to used guns, we sell all brands! Make sure to check with us often as we have a constantly changing variety and selection of guns to choose from.
+            <br>
+            <br>
+            However, we also have particular brands of new guns that we keep in stock at all times and if you need a gun made by any of these brands and we don’t regularly keep it in stock, we would be happy to order it for you.
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">
+            <table class="tftable" border="0">
+            <tr><td><img src="./brands/barrett.png" width="270" height="200"></td><td><img src="./brands/beneli.png" width="270" height="200"></td><td><img src="./brands/beretta.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/bushmaster.png" width="270" height="200"></td><td><img src="./brands/colt.png" width="270" height="200"></td><td><img src="./brands/dpms.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/fnh.png" width="270" height="200"></td><td><img src="./brands/glock.png" width="270" height="200"></td><td><img src="./brands/hk.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/keltec.png" width="270" height="200"></td><td><img src="./brands/kimber.png" width="270" height="200"></td><td><img src="./brands/marlin.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/molot.png" width="270" height="200"></td><td><img src="./brands/mossberg.png" width="270" height="200"></td><td><img src="./brands/para.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/remington.png" width="270" height="200"></td><td><img src="./brands/rossi.png" width="270" height="200"></td><td><img src="./brands/savage.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/smith.png" width="270" height="200"></td><td><img src="./brands/springfield.png" width="270" height="200"></td><td><img src="./brands/taurus.png" width="270" height="200"></td></tr>
+            <tr><td><img src="./brands/tavor.png" width="270" height="200"></td><td><img src="./brands/tula.png" width="270" height="200"></td><td><img src="./brands/winchester.png" width="270" height="200"></td></tr>
+            </table>
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".brands-faq-content");
+        var all = $(".brands-faq");
+        var clicks = $(".brands-faq-click");
+        var close = $(".brands-faq-close");
+        var background = $(".brands-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

@@ -1,0 +1,88 @@
+<div id="faq-bar" class="gold-items gold-items-background faq"></div>
+<div id="faq-bar-inner" class="gold-items faq">
+    <div id="x" class="cursorhand gold-items-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>What metals can I sell?</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="gold-items gold-items-content faq faq-content">
+    <div class="faq-question">
+        You may not realize that you have items of value because of their precious metal content. 
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We accept all of the following:
+        </p>        
+        <p class="faq-text">
+            <ul style="list-style-type:square; font-size: 18px; margin-left: 100px; margin-right: 45px;">
+                <li>Old jewelry</li>
+                <br>
+                <li>Real silverware (Utensils or serving trays, punch bowls, chalices, etc.)</li>
+                <br>
+                <li>Old coins (Dimes and quarters until 1964, and half dollars through 1970 have real silver content)</li>
+                <br>
+                <li>Dental gold</li>
+                <br>
+                <li>Bullion in round or bar form</li>
+            </ul>
+        </p>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".gold-items-content");
+        var all = $(".gold-items");
+        var clicks = $(".gold-items-click");
+        var close = $(".gold-items-close");
+        var background = $(".gold-items-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

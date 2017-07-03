@@ -1,0 +1,110 @@
+<div id="faq-bar" class="payday-faq payday-faq-background faq"></div>
+<div id="faq-bar-inner" class="payday-faq faq">
+    <div id="x" class="cursorhand payday-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Other Loans</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="payday-faq payday-faq-content faq faq-content">
+    <div class="faq-question">
+        What is a payday loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">A payday loan is a short-term, small dollar amount loan you intend to pay back once you receive your next paycheck. We know there are many situations that come up in between paychecks which you may not have been expecting. At Gold, Guns and Guitars we can help you solve those short-term financial situations by loaning you up to $500 on a 10-30 day term.
+        </p>
+    </div>
+    <div class="faq-question">
+        What do I need to get a loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">You will need to fill out a short loan application and verify your income (pay stub, W-2, etc.). Our staff will be able to help walk you through this process and if you are approved we can usually have you out the door, money in hand, in under half an hour.
+        </p>
+    </div>
+    <div class="faq-question">
+        Can I renew my loan if I can’t pay it off?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes! You will need to notify us two business days before the due date and we will be happy to roll the loan over. Just pay any amount between the minimum of the accrued interest and the full amount of the loan, and we will be happy to extend the remainder of your loan through another loan cycle.
+        </p>
+    </div>
+    <div class="faq-question">
+        Will my information be kept private?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Absolutely! Between confidentiality laws, our cutting edge software, and internal security measures, you can rest assured your information will be kept secret and safe with us.
+        </p>
+    </div>
+    <div class="faq-question">
+        Why should I get my payday advance through Gold, Guns and Guitars?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We know you have many options, and therefore we hold ourselves to the highest standards in order to earn your business. Whether it’s our friendly and knowledgeable staff, our lenient and understanding loan renewal policies, or the fact we have some of the lowest interest rates in town, we are confident that you will find Gold, Guns and Guitars to be the best option for you!
+        </p>
+    </div>
+    <div class="faq-question">
+        Where can I get more information about payday advances?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Our trained staff members will be happy to answer any further questions you may have about payday advances. Just give us a call at 256-648-4407 or visit our convenient location at 902 Florence Blvd. We look forward to serving you! 
+        </p>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".payday-faq-content");
+        var all = $(".payday-faq");
+        var clicks = $(".payday-faq-click");
+        var close = $(".payday-faq-close");
+        var background = $(".payday-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

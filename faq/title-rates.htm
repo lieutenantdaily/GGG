@@ -1,0 +1,111 @@
+<div id="faq-bar" class="rates-faq rates-faq-background faq"></div>
+<div id="faq-bar-inner" class="rates-faq faq">
+    <div id="x" class="cursorhand rates-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Title Loan Monthly Rates</strong>
+    </div>
+</div>
+
+<div id="faq-bar-inner2" class="rates-faq rates-faq-content faq faq-content">
+    <div class="faq-question">
+
+        <table border="0" bordercolor="transparent" style="background-color:transparent;" width="100%" cellpadding="3" cellspacing="3">
+            <tr>
+                <td style="width: 50%;"></td>
+                <td style="width: 50%; text-align:right;"></td>
+            </tr>
+            
+            <tr>
+                <td style="text-align:center;"><strong>Ammount Borrowed</strong></td>
+                <td style="text-align:center;"><strong>Rate</strong></td>
+            </tr>
+            
+            <tr>
+                <td style="text-align:center;">$0 - $500</td>
+                <td style="text-align:center;">18.99%</td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;">$501 - $1,000</td>
+                <td style="text-align:center;">14.99%</td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;">$1,001 - $2,000</td>
+                <td style="text-align:center;">11.99%</td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;">$2,001 - $5,000</td>
+                <td style="text-align:center;">9.99%</td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center;">$5,001+</td>
+                <td style="text-align:center;">6.99%</td>
+            </tr>
+        </table>
+        
+        <p class="faq-text">
+            <center><span style="font-size: 16px;">Rates apply to anything with a title: Car, boat, trailer, ATV, mobile homes, etc.</span></center>
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".rates-faq-content");
+        var all = $(".rates-faq");
+        var clicks = $(".rates-faq-click");
+        var close = $(".rates-faq-close");
+        var background = $(".rates-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

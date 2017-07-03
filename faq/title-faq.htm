@@ -1,0 +1,110 @@
+<div id="faq-bar" class="title-faq title-faq-background faq"></div>
+<div id="faq-bar-inner" class="title-faq faq">
+    <div id="x" class="cursorhand title-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Title Loans</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="title-faq title-faq-content faq faq-content">
+    <div class="faq-question">
+        What is a title loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Also known as a title pawn or a motor vehicle equity line of credit, a title loan is a short-term loan accessed using the free and clear title to your vehicle as your credit.
+        </p>
+    </div>
+    <div class="faq-question">
+        What do I need to bring in to get a title loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Bring the vehicle, the free and clear title, and a picture ID to our convenient location at 902 Florence Blvd. and we can have a check (or cash) in your hand in less than 45 minutes.
+        </p>
+    </div>
+    <div class="faq-question">
+        How do I know if my title is “free and clear”?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">On your title, there is a line for the lienholder. If that line is blank or has a note that says the lien has been released and discharged, then your title is free and clear. If you have any further questions feel free to come into our store at 902 Florence Blvd. or call us at 256-648-4407.
+        </p>
+    </div>
+    <div class="faq-question">
+        How much will you loan on my car?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">This depends on a variety of factors, including the value of your car, your employment status, and how much you want. Rule of thumb is that we loan 50% of black book (wholesale) value. However, we are able to be flexible in our loan amounts. Bring your car in and let us know what you need, and we will do our best to get you a loan that fits your specific request.
+        </p>
+    </div>
+    <div class="faq-question">
+        My credit score is bad or nonexistent, can I still get a title loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes! We do not check your credit scores—your car is your credit! This gives borrowing options to people who otherwise have been shut out of the traditional lending system.
+        </p>
+    </div>
+    <div class="faq-question">
+        Will you repossess my car?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We don’t want your car: we want a happy customer! Repossession of a car is the very last resort for us! If you get behind on your payments, we would much rather work out a payment plan allowing you to get your loan paid off so you can keep your car. If you are open and honest with us, we will be happy to work with you to ensure that a repossession is not necessary.
+        </p>
+    </div>
+    
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".title-faq-content");
+        var all = $(".title-faq");
+        var clicks = $(".title-faq-click");
+        var close = $(".title-faq-close");
+        var background = $(".title-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

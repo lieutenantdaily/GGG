@@ -1,0 +1,116 @@
+<div id="faq-bar" class="layaway-faq layaway-faq-background faq"></div>
+<div id="faq-bar-inner" class="layaway-faq faq">
+    <div id="x" class="cursorhand layaway-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Layaway</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="layaway-faq layaway-faq-content faq faq-content">
+    <div class="faq-question">
+        How does your layaway program work?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Our layaway program is simple! Just pay 10% of the item’s price as a non-refundable down payment. You then have 30 days to make another payment of 30% of the item’s price or you will lose the 10% deposit. Each subsequent payment towards your items becomes part of the non-refundable deposit until you have completely paid for your item. (Note: on the final payment of 30% towards the item’s price, sales tax will also have to be collected, making your final payment greater than the previous two.)
+        </p>
+    </div>
+    <div class="faq-question">
+        What if I don’t pay my item off completely? Do I lose all my money?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">The deposit is non-refundable. However, we will allow you to transfer whatever money you have paid down on an item, less the cancellation fee of $10, to store credit to be used towards the purchase of any other item in our store. We will not be able to refund you your deposit under any circumstance, but you can pick out a different item if you change your mind about the one on layaway. (Note: Store credit expires one year from the day it was issued.)
+        </p>
+    </div>
+    <div class="faq-question">
+        What if I can’t pay on time but still intend to buy the item?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">If you are still intending to buy the item but will be a few days late (no more than 5) on your next payment, just call us and let us know. We will be happy to extend the due date of your next payment as a one-time courtesy.
+        </p>
+    </div>
+    <div class="faq-question">
+        Are there some items you do not offer layaway on?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes. We only offer layaway on items priced at $50 or more. Also, we reserve the right to not offer layaway on certain items, although this is pretty rare. Some examples of items we could choose to not offer layaway on include hot-selling items, items which depreciate rapidly (such as some electronics), and some large-ticket items we sell (such as cars, boats, and 4-wheelers).
+        </p>
+    </div>
+    <div class="faq-question">
+        Can I make layaway payments by phone?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes. There is no need to come by our store every month if you don’t want to. Feel free to call us with a debit/credit card number, and we will be happy to take your payment over the phone.
+        </p>
+    </div>
+    <div class="faq-question">
+        Can I have multiple items on layaway?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes. There is no limit to the number of layaway accounts you can have open with us. Feel free to layaway any item you have interest in.
+        </p>
+    </div>
+    <div class="faq-question">
+        Is the layaway program free? Are there any hidden costs or fees?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">The layaway program is completely free as long as you follow through and purchase the item. If you do not purchase the item and your deposit money is transferred to in-store credit, there is a cancellation fee of $10. This covers the cost of us storing your item for several months in our warehouse.
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".layaway-faq-content");
+        var all = $(".layaway-faq");
+        var clicks = $(".layaway-faq-click");
+        var close = $(".layaway-faq-close");
+        var background = $(".layaway-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

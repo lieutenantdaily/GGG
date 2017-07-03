@@ -1,0 +1,122 @@
+<div id="faq-bar" class="gold-faq gold-faq-background faq"></div>
+<div id="faq-bar-inner" class="gold-faq faq">
+    <div id="x" class="cursorhand gold-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Gold</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="gold-faq gold-faq-content faq faq-content">
+    <div class="faq-question">
+        Is now a good time to sell my gold?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Gold prices have backed off slightly from their all-time highs but are still near historic highs. Now is a great time to sell your unwanted, broken, or scrap jewelry, as well as the gold coins or bars you have had laying around for 10 years.
+        </p>
+    </div>
+    <div class="faq-question">
+        How will my gold be evaluated?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">The first step is to obtain the gram weight of your item. We then use an electronic tester, which gives us the exact karat (percentage) of gold in your item. It is not usually necessary to do a “scratch test” on your jewelry to give you a quote! The old fashioned testers had to damage your gold in order to test it accurately. Thanks to modern electronics, this is no longer necessary. 
+        </p>
+    </div>
+    <div class="faq-question">
+        How much will I get paid?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Your cash payment is based on the gold karat and gram weight of each piece. Gold, Guns and Guitars uses the Monex.com spot price value per troy ounce. We offer 65% of the item’s melt value for scrap gold and 80% of spot for gold or silver rounds, coins, or bars.
+        </p>
+    </div>
+    <div class="faq-question">
+        What if I don’t have much gold?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">It doesn’t take much gold to get some serious cash! With gold well over $1,000 per ounce, even a single piece of scrap gold can sometimes be worth $100 or more.
+        </p>
+    </div>
+    <div class="faq-question">
+        What if the jewelry has diamonds or other stones?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">No problem! We can remove those items and buy them separately (if they are worth anything) or return them to you and buy only the gold. We also buy diamonds and other precious stones!
+        </p>
+    </div>
+    <div class="faq-question">
+        What types of items will you buy?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We take a wide variety of gold and silver jewelry and bullion. Here are a few examples of what we accept:
+        </p>
+        <p class="faq-text">
+            <ul style="list-style-type:square; font-size: 18px; margin-left: 100px; margin-right: 45px;">
+                <li>All types of necklaces, rings, bracelets, earrings, etc.</li>
+                <br>
+                <li>Rolex and other high-end watches</li>
+                <br>
+                <li>Coins and bullion in gold, silver, platinum, or palladium form</li>
+                <br>
+                <li>Any other type of precious metal you may have</li>
+                <br>
+                <li>Any precious stones (whether in jewelry or by themselves)</li>
+            </ul>
+        </p>
+    </div>   
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".gold-faq-content");
+        var all = $(".gold-faq");
+        var clicks = $(".gold-faq-click");
+        var close = $(".gold-faq-close");
+        var background = $(".gold-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

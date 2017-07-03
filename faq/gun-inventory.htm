@@ -1,0 +1,71 @@
+<div id="faq-bar" class="inventory-faq inventory-faq-background faq"></div>
+<div id="faq-bar-inner" class="inventory-faq faq">
+    <div id="x" class="cursorhand inventory-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Our Inventory</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="inventory-faq inventory-faq-content faq faq-content">
+    <div class="faq-question">
+        This will be a link to our inventory.
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".inventory-faq-content");
+        var all = $(".inventory-faq");
+        var clicks = $(".inventory-faq-click");
+        var close = $(".inventory-faq-close");
+        var background = $(".inventory-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="css/font-awesome.css">
+
+<div id="faq-bar" class="ffl-license ffl-license-background faq"></div>
+<div id="faq-bar-inner" class="ffl-license faq">
+    <div id="x" class="cursorhand ffl-license-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Federal Firearms License</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="ffl-license ffl-license-content faq faq-content">
+    <div class="faq-ffl">
+        <a href="./image/ffl.pdf" download="ggg-ffl.pdf"><i class="save-icon fa fa-floppy-o"></i></a>
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function() {
+        var content = $(".ffl-license-content");
+        var all = $(".ffl-license");
+        var clicks = $(".ffl-license-click");
+        var close = $(".ffl-license-close");
+        var background = $(".ffl-license-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

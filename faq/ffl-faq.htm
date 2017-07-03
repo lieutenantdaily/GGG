@@ -1,0 +1,82 @@
+<div id="faq-bar" class="ffl-faq ffl-faq-background faq"></div>
+<div id="faq-bar-inner" class="ffl-faq faq">
+    <div id="x" class="cursorhand ffl-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About FFL</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="ffl-faq ffl-faq-content faq faq-content">
+    <div class="faq-question">
+        What is an FFL (federal firearms license) transfer?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Federal law now requires that all guns purchased outside your state of residence be transferred across state lines only by way of licensed gun dealers. This means that if you are from out of state and buy a gun from us, we will have to ship it to a licensed gun dealer in your state and you can pick it up there. Conversely, if you are from Alabama and you buy a gun from out of state (either in person or online), that gun cannot legally be brought into Alabama by you or shipped directly to your house. It must be shipped to a licensed gun dealer where you can pick it up. That is where we come in. We are happy to be the go between entity for either shipping out or receiving in your firearms.
+        </p>
+    </div>
+    <div class="faq-question">
+        Is there a charge for this service?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We offer this service free of charge (not including the cost of shipping) if the firearm was purchased from us. However, due to the amount of paperwork we are required to fill out, file and report, the storage space allocated while the gun is in our possession, and other various costs associated with this service, we do charge a nominal fee of $15 for receiving firearms purchased elsewhere and the same price, plus the cost of shipping, to ship a gun not purchased from us.
+        </p>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".ffl-faq-content");
+        var all = $(".ffl-faq");
+        var clicks = $(".ffl-faq-click");
+        var close = $(".ffl-faq-close");
+        var background = $(".ffl-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

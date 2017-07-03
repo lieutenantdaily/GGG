@@ -1,0 +1,116 @@
+<div id="faq-bar" class="gunsmithing-faq gunsmithing-faq-background faq"></div>
+<div id="faq-bar-inner" class="gunsmithing-faq faq">
+    <div id="x" class="cursorhand gunsmithing-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Gunsmithing</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="gunsmithing-faq gunsmithing-faq-content faq faq-content">
+    <div class="faq-question">
+        I took my gun apart and now cannot put it back together, can you?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Absolutely! This is a common problem. If you bit off more than you can chew or got distracted in the middle of your project and forgot what goes where, just make sure you bring us all the parts in a sealed plastic bag and our on-site gunsmith can have your gun back together in no time!
+        </p>
+    </div>
+    <div class="faq-question">
+        How often should I have my gun cleaned by a gunsmith?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">You should do a basic cleaning of your gun with a bore snake or coated rod and mop after every time you shoot your firearm. However, in order to keep your gun in the best shape possible you should have a certified gunsmith break it down, clean, lubricate, and inspect it after every 500 rounds fired.
+        </p>
+    </div>
+    <div class="faq-question">
+        How is cleaning by a gunsmith different than me cleaning a gun myself?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">At Gold, Guns and Guitars, our certified gunsmith will completely break each firearm down, and clean each of the individual parts, lubricate the parts that need oiling and in the process be able to inspect each part for weaknesses or dangerous wear and tear.
+        </p>
+    </div>
+    <div class="faq-question">
+        Can you do something to my iron sights to help me see them better?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Yes, there are a variety of solutions including machining the sights to accept coloring or various materials which will enhance the sights visibility. In some cases the sights are hardened so that coloring cannot be added and in those cases new, more visible sights can be installed.
+        </p>
+    </div>
+    <div class="faq-question">
+        What does it mean to get my firearm accurized?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">This is what a gunsmith will call “tuning.” It means to break down the firearm (usually “accurization” refers to a semi-automatic handgun) and perform whatever work is necessary to make the firearm shoot smoother, more accurately, and at its highest efficiency. Think of getting a tune-up on your car: it’s like that but for your gun. This process can be time consuming, but the difference is often very noticeable and worth the time and effort it requires.
+        </p>
+    </div>
+    <div class="faq-question">
+        My gun was in a fire, can it be restored?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Very often it can. The most important thing is whether or not the action is still in good working condition. Bring the gun in to our convenient location on Florence Blvd. and we will be happy to have our on-site gunsmith look it over and discuss your expectations, and his ability to meet those expectations. Even if your gun doesn’t appear to be damaged, you should still bring it in to have our certified gunsmith inspect it. Heat can damage a firearm and render it unsafe internally, even if it appears to have escaped much external damage.
+        </p>
+    </div>
+    <div class="faq-question">
+        My gun was in a flood, but it appears to be okay. Can I just let it dry out?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Generally, no, it’s not that easy. In order to make sure your gun is preserved correctly it must be broken down and each part dried separately under low temperature air. Often after a flood the components will also have to have rust removed, recoated, lubricated, and any wooden parts, such as the stock, may have to be replaced if they were waterlogged. Bring your gun to our location at 902 Florence Blvd. to have our on-site gunsmith look it over and give you a quote on what it will cost to get it back in shape.
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".gunsmithing-faq-content");
+        var all = $(".gunsmithing-faq");
+        var clicks = $(".gunsmithing-faq-click");
+        var close = $(".gunsmithing-faq-close");
+        var background = $(".gunsmithing-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

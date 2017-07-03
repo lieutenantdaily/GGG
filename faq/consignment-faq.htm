@@ -1,0 +1,135 @@
+<div id="faq-bar" class="consignment-faq consignment-faq-background faq"></div>
+<div id="faq-bar-inner" class="consignment-faq faq">
+    <div id="x" class="cursorhand consignment-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Questions About Consignment</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="consignment-faq consignment-faq-content faq faq-content">
+    <div class="faq-question">
+        What is consignment?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Consignment is simply when a customer agrees to let a third party store and sell their item, but they retain ownership of that item until it is purchased by a customer. It is understood that the consignee (the person storing and selling the item) only pays the consignor (the person giving the item) after the item sells. The consignee charges a fee for selling the item, usually a percentage of the item’s final sale price.
+        </p>
+    </div>
+    <div class="faq-question">
+        What are some of the advantages of consigning my item?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Often times your item will sell for near retail price and you only pay us when and if your item sells! The fees are relatively low for consignment so if you are willing to be patient, you can often get more money out of your item by letting us consign it than by selling it directly to us for cash.
+            <br>
+            <br>We also provide increased exposure. It is much easier for us to sell your item than it is for you. Items in our store are seen by hundreds of customers on a weekly basis and if your item is priced right, it will very likely sell.
+        </p>
+    </div>
+    <div class="faq-question">
+        What are some of the disadvantages of consigning my item?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">If you need quick cash, consignment probably isn’t right for you. There is no guarantee how much your item will sell for in our store or if it will sell at all. After 60 days we may ask you to come pick your item up if it has not sold, or we may ask you to renew the contract and we will continue trying to sell it.
+        </p>
+    </div>
+    <div class="faq-question">
+        What happens if my item never sells?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">You do not owe us anything. We will either renew your consignment contract after 60 days or ask you to come pick up the item.
+        </p>
+    </div>
+    <div class="faq-question">
+        How do I get paid when my item sells?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Our software tracks every piece of consigned merchandise. When a customer buys it, our system will automatically notify us that a consignment sale has been made. We will contact you by phone or email to let you know a check is waiting for you at our store.
+        </p>
+    </div>
+    <div class="faq-question">
+        What if my item is lost, stolen, or damaged while on consignment?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We accept full responsibility for your item while it is under our roof. We will pay you a pre-determined price for your item if it is missing or damaged.
+        </p>
+    </div>
+    <div class="faq-question">
+        Who can consign an item? Is there a minimum value for consignment items?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Anyone is welcome to consign an item with us. We only accept consignment items we expect to sell for $50 or more.
+        </p>
+    </div>
+    <div class="faq-question">
+        What is your fee structure for consignment sales?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Our fee structure is as follows: 
+            <br>20% on the amount up to $999
+            <br>Items of $1000 or more will be negotiated on a case-by-case basis.
+
+        </p>
+    </div>
+    <div class="faq-question">
+        What if Gold, Guns and Guitars sells my item for less than I wanted to get out of it?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Before we accept any item on consignment, we let you choose a minimum price you are willing to accept for the item. Your minimum must be reasonable or we will be unable to take the item in on consignment, as we are only interested in consigning merchandise we think we can sell. You will never receive less than your stated minimum for your item. We will sell your item for as much as possible! Remember, our commission is based on how much we sell your item for, so we have every reason to sell it for top dollar!
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".consignment-faq-content");
+        var all = $(".consignment-faq");
+        var clicks = $(".consignment-faq-click");
+        var close = $(".consignment-faq-close");
+        var background = $(".consignment-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>

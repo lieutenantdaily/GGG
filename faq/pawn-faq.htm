@@ -1,0 +1,116 @@
+<div id="faq-bar" class="pawn-faq pawn-faq-background faq"></div>
+<div id="faq-bar-inner" class="pawn-faq faq">
+    <div id="x" class="cursorhand pawn-faq-close" style="position:absolute; text-align: right; font-size: large; margin-top:2px; margin-right:4px; margin-left: 936px; color:#404040;">
+        <strong>X</strong>
+    </div>
+    <div class="faq-title" style="text-align: left; margin-left: 25px;">
+        <strong>Common Questions About Pawn</strong>
+    </div>
+</div>
+<div id="faq-bar-inner2" class="pawn-faq pawn-faq-content faq faq-content">
+    <div class="faq-question">
+        What is a pawn?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">A pawn is another term for a short-term loan based on the value of an item you bring and leave with us until the loan is paid off. If you cannot pay off your loan in full, just pay the interest charges and renew your loan for another month. You may renew your loan as many times as needed. If you fail to return after a specified time (30 days after your last payment was overdue, according to state law), we have the option to sell the item. However, our goal is to help you out and retain happy customers. If you cannot make the interest payments but really don’t want us to sell the item, give us a call and ask us to hold the item an additional month; we’re nice guys and we will do all we can to help you get your pawned item back.
+        </p>
+    </div>
+    <div class="faq-question">
+        How do you know how much to loan?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">At Gold, Guns and Guitars we normally offer ⅓ - ½ of the current used retail price of the item. Items easier to sell, such as gold, diamonds, recent video game systems, power tools, TVs, guns, etc. will usually have a greater loan value. We are happy to give you a quote over the phone (this will just be an estimate and will be contingent on the condition of the item when you bring it in), but when we can see the object for ourselves, we are able to do some quick reference work and make you a loan offer realistic with the item’s current value.
+        </p>
+    </div>
+    <div class="faq-question">
+        How do you know the items work?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We make every effort to test items before the loan or purchase is made. If we can’t test your item, we won’t take it!
+        </p>
+    </div>
+    <div class="faq-question">
+        How do you know if diamonds and gold are real?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Our employees have training and can often tell if jewelry is fake by looking at it. We also have some of the best electronic testing equipment to test the jewelry for its authenticity, so we can be certain the Gold, Silver, Platinum or Diamonds are 100% authentic.
+        </p>
+    </div>
+    <div class="faq-question">
+        What do I need to pawn an item?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">You will need a state issued ID, such as a Driver’s License, Non-driver Identification, Military ID, or Passport. You will also be required to sign a loan agreement. Accessories for items must also be included before a loan is given, such as remote controls, battery chargers, power cords, etc.
+        </p>
+    </div>
+    <div class="faq-question">
+        How can I be sure the merchandise I purchase isn’t stolen goods?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">Unfortunately pawn shops have gotten a bad rap for buying stolen goods, but regardless of what you’ve seen on TV, or in the movies, less than half of one percent of all pawned merchandise is identified as stolen goods. This is because every item pawned or sold to us must be reported to the local law-enforcement authorities and run against their stolen goods reports. Our staff is trained to be able to identify stolen goods, and we work closely with local and federal law enforcement agencies, making our pawn shop one of the worst ways to try to sell stolen property. 
+        </p>
+    </div>
+    <div class="faq-question">
+        How do your rates compare to other pawn shops?
+    </div>
+    <div class="faq-text">
+        <p class="faq-text">We offer some of the best rates in town! While our competitors are charging anywhere from 20-25% on their pawn loans, we help our customers out by offering a low monthly interest rate of just 18.99%.
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var content = $(".pawn-faq-content");
+        var all = $(".pawn-faq");
+        var clicks = $(".pawn-faq-click");
+        var close = $(".pawn-faq-close");
+        var background = $(".pawn-faq-background");
+        var page = $("#main");
+        var open = 0;
+        var h = $(window).height();
+        var contentHeight = h - 142;
+
+        //make slider show
+        clicks.click(function(e) {
+            open = 1;
+            background.fadeIn(500, function() {
+                all.fadeIn(500, function() {
+                    e.preventDefault();
+                    if (content.is(':not(:animated)')) {
+                        content.animate({
+                            height: contentHeight
+                        }, 500);
+                        document.body.style.overflow = "hidden";
+                    }
+                });
+            });
+        });
+
+
+        close.click(function(e) {
+            open = 0;
+            e.preventDefault();
+            if (content.is(':not(:animated)')) {
+                content.animate({
+                    height: 0
+                }, 500, function() {
+                    all.fadeOut(500);
+                    document.body.style.overflow = "visible";
+                });
+            }
+        });
+
+        $(window).on('resize', function() {
+            h = $(window).height();
+            contentHeight = h - 142;
+            if (open == 1) {
+                content.css('height', contentHeight);
+            } else {
+                content.css('height', '0px');
+            }
+        });
+
+
+    });
+</script>
