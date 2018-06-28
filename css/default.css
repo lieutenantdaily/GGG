@@ -335,6 +335,7 @@ p.codrops-demos a.current-demo:hover{
 #map{
 	visibility:hidden;
     position:absolute;
+    width: 100%;
 }
 
 

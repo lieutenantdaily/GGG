@@ -251,7 +251,7 @@ $(document).ready(function () {
             var newMargin = 320;
             //divs.animate({ marginLeft: newMargin }, SlideSpeed, function () { SetNavigationDisplay() });
             divs2.animate({
-                height: 173
+                height: 293
             }, 500);
             //divs3.animate({ opacity: 0.55 }, 500, function () { SetNavigationDisplay() });
             clicks.css('border-top', 'none');
@@ -301,7 +301,7 @@ $(document).ready(function () {
             var newMargin = 320;
             //divs.animate({ marginLeft: newMargin }, SlideSpeed, function () { SetNavigationDisplay() });
             divs2.animate({
-                height: 375
+                height: 225
             }, 500);
             //divs3.animate({ opacity: 0.55 }, 500, function () { SetNavigationDisplay() });
             clicks.css('border-top', 'none');
@@ -4252,45 +4252,6 @@ $(function () {
 $(function () {
     var title = $('.nav-word3');
     var divOUT1 = $('#pawn');
-    var divOUT2 = $('#loans');
-
-    var scrollTop1 = $(window).scrollTop();
-    var elementOffset1 = divOUT1.offset().top;
-    var distance1 = (elementOffset1 - scrollTop1);
-
-    var scrollTop2 = $(window).scrollTop();
-    var elementOffset2 = divOUT2.offset().top;
-    var distance2 = (elementOffset2 - scrollTop2);
-
-    if (distance1 < 550 && distance2 > 550) {
-        title.css('border-top', 'solid 10px #222');
-    } else {
-        title.css('border-top', 'solid 0px #222');
-    }
-
-    $(window).on('scroll', function () {
-        scrollTop1 = $(window).scrollTop();
-        elementOffset1 = divOUT1.offset().top;
-        distance1 = (elementOffset1 - scrollTop1);
-
-        scrollTop2 = $(window).scrollTop();
-        elementOffset2 = divOUT2.offset().top;
-        distance2 = (elementOffset2 - scrollTop2);
-
-        if (distance1 < 550 && distance2 > 550) {
-            title.css('border-top', 'solid 10px #222');
-        } else {
-            title.css('border-top', 'solid 0px #222');
-        }
-
-    });
-}); //]]>
-//****************************************************************************
-
-//Fade/Out In - title4**********************************************************
-$(function () {
-    var title = $('.nav-word4');
-    var divOUT1 = $('#loans');
     var divOUT2 = $('#gold');
 
     var scrollTop1 = $(window).scrollTop();
@@ -4325,6 +4286,45 @@ $(function () {
     });
 }); //]]>
 //****************************************************************************
+
+////Fade/Out In - title4**********************************************************
+//$(function () {
+//    var title = $('.nav-word4');
+//    var divOUT1 = $('#loans');
+//    var divOUT2 = $('#gold');
+//
+//    var scrollTop1 = $(window).scrollTop();
+//    var elementOffset1 = divOUT1.offset().top;
+//    var distance1 = (elementOffset1 - scrollTop1);
+//
+//    var scrollTop2 = $(window).scrollTop();
+//    var elementOffset2 = divOUT2.offset().top;
+//    var distance2 = (elementOffset2 - scrollTop2);
+//
+//    if (distance1 < 550 && distance2 > 550) {
+//        title.css('border-top', 'solid 10px #222');
+//    } else {
+//        title.css('border-top', 'solid 0px #222');
+//    }
+//
+//    $(window).on('scroll', function () {
+//        scrollTop1 = $(window).scrollTop();
+//        elementOffset1 = divOUT1.offset().top;
+//        distance1 = (elementOffset1 - scrollTop1);
+//
+//        scrollTop2 = $(window).scrollTop();
+//        elementOffset2 = divOUT2.offset().top;
+//        distance2 = (elementOffset2 - scrollTop2);
+//
+//        if (distance1 < 550 && distance2 > 550) {
+//            title.css('border-top', 'solid 10px #222');
+//        } else {
+//            title.css('border-top', 'solid 0px #222');
+//        }
+//
+//    });
+//}); //]]>
+////****************************************************************************
 
 //Fade/Out In - title5**********************************************************
 $(function () {

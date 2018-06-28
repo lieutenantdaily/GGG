@@ -536,6 +536,7 @@ only screen and (min-resolution:120dpi) {
     border-radius: 2px;
     background-color: transparent;
     overflow: hidden;
+    pointer-events: none;
 }
 .cursorhand {
     cursor: pointer;
@@ -1950,5 +1951,9 @@ fieldset > ul > li {
 }
 
 .hideit {
+    display: none;
+}
+
+.hide-it {
     display: none;
 }
