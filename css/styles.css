@@ -1855,6 +1855,7 @@ fieldset > ul > li {
 .section-break {
     z-index: 312;
     box-shadow: 0px 0px 10px 0px black;
+    background-color: #222;
 }
 .section-break-first {
     z-index: 312;
